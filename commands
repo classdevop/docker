@@ -76,3 +76,56 @@ exit
 92  docker images
 93  docker run -it --name c5 ubuntu:1.0 /bin/bash
 ls
+creating bindmount
+ls
+cd docker
+mkdir mylocalvol
+cd mylocalvol
+pwd
+cd ..
+docker run -it --name c6 -v /home/ec2-user/docker/mylocalvol:/temp ubuntu /bin/bash
+ls
+cd temp
+touch file1
+echo "hi" > file1
+ls
+exit
+cd docker
+cd mylocalvol
+ls
+cat file1
+========
+docker network ls
+docker inspect network networkid
+docker exec -it c8 /bin/bash
+ifconfig
+apt-get update
+apt-get install net-tools
+ifconfig
+ping
+apt-get install iputils-ping
+ping
+======
+how to create custom bridge
+docker network ls
+docker network create --driver bridge test
+docker network ls
+docker rm -td --name co --network test ubuntu
+docker inspect co
+docker network ls
+========
+we will connect a container to our network which we have created in the previous step.
+sudo docker run -it --network=test ubuntu:latest /bin/bash
+===
+how to create host network
+docker run -td --name c01 --network host ubuntu
+docker network inspect  c01
+docker exec -it c01 /bin/bash
+apt-get update
+apt-get install net-tools
+ifconfig
+=======
+ping from default bridge to custom bridge
+docker network create test1
+docker network inspect test1
+docker network create --subnet 10.7.0.0/16 --gateway 10.7.7.7 test2
