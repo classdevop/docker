@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y curl
+
+WORKDIR /app
+RUN curl -O -L <ARTIFACTORY_URL>/<PACKAGE_PATH>
+
+# (Optional) Extract the package if needed
+# RUN tar -xvf package.tar.gz
+
+CMD ["./your_application"]
