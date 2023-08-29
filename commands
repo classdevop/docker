@@ -1,0 +1,78 @@
+git --version
+sudo yum update
+sudo yum install git
+git --version
+sudo yum install docker -y
+docker --version
+ls
+ls -a
+docker images -list images
+sudo service docker start
+docker images
+sudo docker images
+status docker.service
+sudo usermod -a -G docker ec2-user
+docker images
+sudo chmod 666 /var/run/docker.sock
+docker images 
+docker ps list containers
+docker pull jenkins/jenkins -To download the image from docker hub to local image
+docker images
+docker ps
+ls
+25  ls -a
+30  docker run -it --name c1 jenkins/jenkins /bin/bash  To run container from image
+Where -it —> interactive mode, - -name → give name(run in attached mode)
+31  docker images
+32  docker ps
+44  docker run -td --name c3 -p 8080:8080 jenkins/jenkins To run container with published port
+45  docker logs c3
+46  docker ps
+48  docker images
+49  docker ps
+51  docker exec -it c3 /bin/bash To go inside running container(will take u to intercative mode)
+52  docker ps
+53  ls
+exit
+55  docker run -td --name c4 ubuntu <<dettched mode,>>
+56  docker ps
+57  docker exec -it c4 /bin/bash
+58  docker stop c4
+59  docker ps
+60  docker stop c3
+62  docker rm c3
+63  ps
+64  docker ps
+65  docker pa -a
+67  docker images
+68  docker start c4  To start container
+69  docker ps
+70  sudo service docker status
+71  docker inspect c4 To check the details about image and container
+73  docker inspect ubuntu
+74  docker images
+75  ls
+76  docker rmi ubuntu
+77  docker ps
+78  service stop c4
+79  docker stop c4
+80  docker rmi ubuntu
+81  docker rm c4
+82  docker rmi ubuntu
+83  docker pull ubuntu
+84  docker run -it --name c4 ubuntu /bin/bash
+ls
+mkdir test
+cd test/
+touch file1
+ls
+cd ..
+exit
+87  docker ps
+88  docker ps -a
+89  docker start c4
+90  docker ps
+91  docker commit c4 ubuntu:1.0 - Creating image out of the container
+92  docker images
+93  docker run -it --name c5 ubuntu:1.0 /bin/bash
+ls
